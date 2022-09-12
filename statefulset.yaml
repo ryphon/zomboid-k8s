@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: zomboid
+  labels:
+    app: zomboid
+spec:
+  replicas: 1
+  serviceName: zomboid
+  selector:
+    matchLabels:
+      app: zomboid
+  template:
+    metadata:
+      labels:
+        app: zomboid
+    spec:
+      #securityContext:
+      #  runAsUser: 1072
+      #  runAsGroup: 1072
+      #  fsGroup: 1072
+      containers:
+        - name: zomboid
+          image: docker.io/renegademaster/zomboid-dedicated-server:latest
+          envFrom:
+            - secretRef:
+                name: zomboid
+          livenessProbe:
+            tcpSocket:
+              port: 27015
+            periodSeconds: 10
+            failureThreshold: 3
+          startupProbe:
+            tcpSocket:
+              port: 27015
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 120
+          ports:
+            - containerPort: 27015
+              protocol: TCP
+            - containerPort: 8766
+              protocol: UDP
+            - containerPort: 16261
+              protocol: UDP
+          volumeMounts:
+            - name: zomboid
+              mountPath: /home/steam/ZomboidDedicatedServer
+            - name: config
+              mountPath: /home/steam/Zomboid
+      volumes:
+        - name: zomboid
+          persistentVolumeClaim:
+            claimName: zomboid
+        - name: config
+          persistentVolumeClaim:
+            claimName: config

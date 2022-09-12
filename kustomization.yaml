@@ -1,0 +1,10 @@
+namespace: zomboid
+
+resources:
+  - namespace.yaml
+  - statefulset.yaml
+  - ingressroute.yaml
+  - certificate.yaml
+  - service.yaml
+  - pvc.yaml
+  - secret.yaml

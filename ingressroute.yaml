@@ -1,0 +1,25 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: server-a
+  namespace: zomboid
+spec:
+  entryPoints:
+    - zomboid-a
+  routes:
+    - services:
+        - name: zomboid
+          port: 16261
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: server-b
+  namespace: zomboid
+spec:
+  entryPoints:
+    - zomboid-b
+  routes:
+    - services:
+        - name: zomboid
+          port: 8766

@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: zomboid-cert
+  namespace: zomboid
+  annotations:
+    cert-manager.io/cluster-issuer: zerossl-prod
+spec:
+  # Secret names are always required.
+  secretName: zomboid-ssl
+  renewBefore: 360h # 15d
+  # At least one of a DNS Name, URI, or IP address is required.
+  dnsNames:
+    - zomboid.dragonfruit.dev
+    - map.zomboid.dragonfruit.dev
+  # Issuer references are always required.
+  issuerRef:
+    name: zerossl-prod
+    # We can reference ClusterIssuers by changing the kind here.
+    # The default value is Issuer (i.e. a locally namespaced Issuer)
+    kind: ClusterIssuer
