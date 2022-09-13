@@ -19,6 +19,14 @@ spec:
         resources:
           requests:
             storage: 20Gi
+    - metadata:
+        name: config
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: local-path
+        resources:
+          requests:
+            storage: 20Gi
   template:
     metadata:
       labels:
@@ -72,7 +80,3 @@ spec:
               mountPath: /home/steam/ZomboidDedicatedServer
             - name: config
               mountPath: /home/steam/Zomboid
-      volumes:
-        - name: config
-          persistentVolumeClaim:
-            claimName: config
