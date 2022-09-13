@@ -11,6 +11,14 @@ spec:
     matchLabels:
       app: zomboid
   template:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: "gotm"
+                  operator: Equal
+                  value: "true"
     metadata:
       labels:
         app: zomboid
@@ -19,6 +27,12 @@ spec:
       #  runAsUser: 1072
       #  runAsGroup: 1072
       #  fsGroup: 1072
+      tolerations:
+        - key: "gotm"
+          operator: "Equal"
+          value: "true"
+          effect: "NoExecute"
+
       containers:
         - name: zomboid
           image: docker.io/renegademaster/zomboid-dedicated-server:latest
@@ -49,10 +63,14 @@ spec:
               mountPath: /home/steam/ZomboidDedicatedServer
             - name: config
               mountPath: /home/steam/Zomboid
-      volumes:
-        - name: zomboid
-          persistentVolumeClaim:
-            claimName: zomboid
         - name: config
           persistentVolumeClaim:
             claimName: config
+  volumeClaimTemplates:
+    - metadata:
+        name: zomboid
+      spec:
+        storageClass: local-path
+        resources:
+          requests:
+            storage: 50Gi
