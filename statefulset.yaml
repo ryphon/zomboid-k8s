@@ -68,7 +68,7 @@ spec:
             - containerPort: 16261
               protocol: UDP
           volumeMounts:
-            - name: zomboid
+            - name: data
               mountPath: /home/steam/ZomboidDedicatedServer
             - name: config
               mountPath: /home/steam/Zomboid
