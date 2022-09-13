@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: "nfs"
   accessModes:
-    - ReadWriteMany #  must be the same as PersistentVolume
+    - ReadWriteMany
   resources:
     requests:
       storage: 10Gi
@@ -17,7 +17,7 @@ metadata:
 spec:
   storageClassName: "nfs"
   accessModes:
-    - ReadWriteMany #  must be the same as PersistentVolume
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
