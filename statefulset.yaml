@@ -10,6 +10,9 @@ spec:
   selector:
     matchLabels:
       app: zomboid
+  # Zomboid is very IO heavy it seems, NFS doesn't really do well.
+  # Local-path + dedicated K8s node + careful rclone to B2 for backups
+  # K8s node specs: 4 vcpu, 12G ram, Intel S3710 SSD backing the VM
   volumeClaimTemplates:
     - metadata:
         name: data
@@ -41,15 +44,14 @@ spec:
                     operator: In
                     values:
                       - "true"
+      # K8s node is labeled with gotm (game of the month)
+      # Dedicated, higher power k8s node dedicated for game servers
       tolerations:
         - key: "gotm"
           operator: "Equal"
           value: "true"
           effect: "NoExecute"
-      #securityContext:
-      #  runAsUser: 1072
-      #  runAsGroup: 1072
-      #  fsGroup: 1072
+      # K8s node is also tainted with gotm, so that only the gotm pod + logging and metrics and crap
       containers:
         - name: zomboid
           image: docker.io/renegademaster/zomboid-dedicated-server:latest
