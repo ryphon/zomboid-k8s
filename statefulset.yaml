@@ -12,8 +12,9 @@ spec:
       app: zomboid
   volumeClaimTemplates:
     - metadata:
-        name: zomboid
+        name: data
       spec:
+        accessModes: ["ReadWriteOnce"]
         storageClassName: local-path
         resources:
           requests:
