@@ -6,5 +6,4 @@ resources:
   - ingressroute.yaml
   - certificate.yaml
   - service.yaml
-  - pvc.yaml
   - secret.yaml
