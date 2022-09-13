@@ -56,10 +56,10 @@ spec:
           startupProbe:
             tcpSocket:
               port: 27015
-            initialDelaySeconds: 15
-            periodSeconds: 5
+            initialDelaySeconds: 600
+            periodSeconds: 10
             successThreshold: 1
-            failureThreshold: 120
+            failureThreshold: 600
           ports:
             - containerPort: 27015
               protocol: TCP
