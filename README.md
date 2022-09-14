@@ -1,7 +1,7 @@
 # K8s Zomboid Installation
 
 
-This isn't really meant as a "do this yourself" solution, mostly just as an example of how _I_ did it.
+This isn't meant as a "do this yourself" solution, purely an example of how _I_ did it.
 
 Used the wonderful container by @Renegade-Master [here](https://github.com/Renegade-Master/zomboid-dedicated-server).
 
@@ -19,6 +19,8 @@ Used the wonderful container by @Renegade-Master [here](https://github.com/Reneg
 - This isn't for the faint of heart. Like at all. I'm on day 3 before writing this up.
 - You should know k8s decently well before you try to make a game server work with it.
 - I set up a dedicated node as a game server, 4 vcpu, 12g ram, and an SSD backing the whole VM.
+- The node has a taint with gotm=true:NoExecute (game of the month, will probably use this server for other games).
+- Node also has a label with gotm: "true", and the statefulset sets up an affinity. Game -> Node, easy.
 - The config dir is an example of the .ini and .lua files that I use. You should customize them properly.
 - The .ini and .lua files should be named accordingly to your server name. It matters.
 - Note the containers environment vars will nearly always overwrite the configs.
