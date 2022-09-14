@@ -43,4 +43,9 @@ Or similar GitOps, good luck.
 
 ## Support
 
-None. I'm not really here to help you, this is just how I did it.
+None. I'm not here to help you, this is how I did it.
+
+## todo
+- helm-itize
+- formalize flux meta links into this repo
+- automate backup scripts to something like b2 idk
