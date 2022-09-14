@@ -16,19 +16,28 @@ Used the wonderful container by @Renegade-Master [here](https://github.com/Reneg
 
 ## Notes
 
-- This isn't for the faint of heart
-- You should know k8s decently well before you try to make a game server work with it
-- I set up a dedicated node as a game server, 4 vcpu, 12g ram, and an SSD backing the whole VM
+- This isn't for the faint of heart. Like at all. I'm on day 3 before writing this up.
+- You should know k8s decently well before you try to make a game server work with it.
+- I set up a dedicated node as a game server, 4 vcpu, 12g ram, and an SSD backing the whole VM.
+- The config dir is an example of the .ini and .lua files that I use. You should customize them properly.
+- The .ini and .lua files should be named accordingly to your server name. It matters.
+- Note the containers environment vars will nearly always overwrite the configs.
+- If you're using any options the env vars provide, use the env vars via the secret, not the .ini
 
 ## Installation
 
-Simple install:
+### Simple install:
 ```bash
 git clone https://github.com/ryphon/zomboid-k8s.git
 cd zomboid-k8s
 kustomize build . | kubectl apply -f -
 ```
 
+### Difficult Install
+- [Flux](https://fluxcd.io/)
+- [Argo](https://argoproj.github.io/)
+Or similar GitOps, good luck.
+
 ## Support
 
-nah
+None. I'm not really here to help you, this is just how I did it.
