@@ -36,6 +36,7 @@ kustomize build . | kubectl apply -f -
 ### Difficult Install
 - [Flux](https://fluxcd.io/)
 - [Argo](https://argoproj.github.io/)
+
 Or similar GitOps, good luck.
 
 ## Support
