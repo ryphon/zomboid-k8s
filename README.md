@@ -3,7 +3,7 @@
 
 This isn't meant as a "do this yourself" solution, purely an example of how _I_ did it.
 
-Used the wonderful container by @Renegade-Master [here](https://github.com/Renegade-Master/zomboid-dedicated-server).
+Using the wonderful container by [@Renegade-Master](https://github.com/Renegade-Master) [here](https://github.com/Renegade-Master/zomboid-dedicated-server).
 
 ## Dependencies
 1. A k8s cluster ([k3s](https://k3s.io/), [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/), [minikube](https://minikube.sigs.k8s.io/))
