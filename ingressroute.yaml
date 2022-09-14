@@ -1,3 +1,5 @@
+# Traefik has two UDP entrypoints defined so that these ingressroutes work
+# Note no RCON ingressroute, I'd rather have internal access to do that
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteUDP
 metadata:
