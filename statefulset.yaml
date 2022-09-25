@@ -35,6 +35,9 @@ spec:
       labels:
         app: zomboid
     spec:
+      resources:
+        requests:
+          cpu: 3
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
