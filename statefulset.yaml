@@ -37,7 +37,7 @@ spec:
     spec:
       resources:
         requests:
-          cpu: 3
+          cpu: 4
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
