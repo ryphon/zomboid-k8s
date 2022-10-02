@@ -35,9 +35,6 @@ spec:
       labels:
         app: zomboid
     spec:
-      resources:
-        requests:
-          cpu: 4
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -58,6 +55,9 @@ spec:
       containers:
         - name: zomboid
           image: docker.io/renegademaster/zomboid-dedicated-server:latest
+          resources:
+            requests:
+              cpu: 4
           envFrom:
             - secretRef:
                 name: zomboid
