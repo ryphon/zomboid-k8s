@@ -57,7 +57,7 @@ spec:
           image: docker.io/renegademaster/zomboid-dedicated-server:latest
           resources:
             requests:
-              cpu: 4
+              cpu: 2
           envFrom:
             - secretRef:
                 name: zomboid
