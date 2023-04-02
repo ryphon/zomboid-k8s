@@ -4,3 +4,5 @@ metadata:
   name: zomboid
   labels:
     istio-injection: enabled
+  annotations:
+    linkerd.io/inject: enabled
