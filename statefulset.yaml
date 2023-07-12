@@ -5,7 +5,7 @@ metadata:
   labels:
     app: zomboid
 spec:
-  replicas: 0
+  replicas: 1
   serviceName: zomboid
   selector:
     matchLabels:
