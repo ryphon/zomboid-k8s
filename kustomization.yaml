@@ -3,7 +3,7 @@ namespace: zomboid
 resources:
   - namespace.yaml
   - statefulset.yaml
-  - ingressroute.yaml
+  #- ingressroute.yaml
   - certificate.yaml
   - service.yaml
   - secret.yaml
