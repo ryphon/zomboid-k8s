@@ -2,15 +2,15 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: zomboid-cert
-  namespace: zomboid
+  namespace: ${namespace}
   annotations:
     cert-manager.io/cluster-issuer: zerossl-prod
 spec:
   secretName: zomboid-ssl
   renewBefore: 360h # 15d
   dnsNames:
-    - zomboid.dragonfruit.dev
-    - map.zomboid.dragonfruit.dev
+    - ${subdomain}.${domain}
+    - map.zomboid.${domain}
   issuerRef:
-    name: zerossl-prod
+    name: ${cert_issuer}
     kind: ClusterIssuer

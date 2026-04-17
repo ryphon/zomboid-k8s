@@ -1,4 +1,4 @@
-namespace: zomboid
+namespace: ${namespace}
 
 resources:
   - namespace.yaml

@@ -4,7 +4,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRouteUDP
 metadata:
   name: server-a
-  namespace: zomboid
+  namespace: ${namespace}
 spec:
   entryPoints:
     - zomboid-a
@@ -17,7 +17,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRouteUDP
 metadata:
   name: server-b
-  namespace: zomboid
+  namespace: ${namespace}
 spec:
   entryPoints:
     - zomboid-b

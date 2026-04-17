@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: zomboid
+  name: ${namespace}
   labels:
     app: zomboid
 spec:
@@ -60,7 +60,7 @@ spec:
               cpu: 2
           envFrom:
             - secretRef:
-                name: zomboid
+                name: ${namespace}
           livenessProbe:
             tcpSocket:
               port: 27015
