@@ -4,7 +4,7 @@ metadata:
   name: zomboid-cert
   namespace: ${namespace}
   annotations:
-    cert-manager.io/cluster-issuer: zerossl-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   secretName: zomboid-ssl
   renewBefore: 360h # 15d
